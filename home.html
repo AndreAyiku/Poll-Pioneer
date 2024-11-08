@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poll Pioneer - Sections</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            color: #fff;
+            height: 100%;
+        }
+        
+        .background-container {
+            background: linear-gradient(135deg, #f2f2f2, #a6a6a6, #4d4d4d, #1a1a1a);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        @keyframes gradient {
+            0% {background-position: 0% 50%;}
+            50% {background-position: 100% 50%;}
+            100% {background-position: 0% 50%;}
+        }
+        
+        header {
+            background-color: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .logo a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+        
+        nav ul {
+            list-style-type: none;
+            display: flex;
+            gap: 1rem;
+            padding: 0;
+        }
+        
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.1rem;
+        }
+        
+        .auth-buttons a {
+            color: #000;
+            background-color: #fff;
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-left: 1rem;
+            font-weight: bold;
+        }
+        
+        .content-container {
+            flex: 1;
+            padding: 2rem;
+            overflow-y: auto;
+        }
+        
+        .section {
+            background-color: rgba(0, 0, 0, 0.6);
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+        }
+        
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .section-header h2 {
+            margin: 0;
+            font-size: 1.8rem;
+        }
+        
+        .see-more {
+            color: #fff;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border: 2px solid #fff;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .see-more:hover {
+            background-color: #fff;
+            color: #000;
+        }
+        
+        .scroll-container {
+            overflow-x: auto;
+            white-space: nowrap;
+            padding: 1rem 0;
+            scrollbar-width: thin;
+            scrollbar-color: #fff rgba(255, 255, 255, 0.1);
+        }
+        
+        .scroll-container::-webkit-scrollbar {
+            height: 8px;
+        }
+        
+        .scroll-container::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+        }
+        
+        .scroll-container::-webkit-scrollbar-thumb {
+            background-color: #fff;
+            border-radius: 4px;
+        }
+        
+        .poll-card {
+            display: inline-block;
+            width: 300px;
+            height: 200px;
+            margin-right: 1rem;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 1rem;
+            vertical-align: top;
+            white-space: normal;
+            transition: transform 0.3s ease;
+        }
+        
+        .poll-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .poll-card h3 {
+            margin: 0 0 0.5rem 0;
+            font-size: 1.2rem;
+        }
+        
+        .poll-card p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .poll-stats {
+            margin-top: 1rem;
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.6);
+        }.search-container {
+            padding: 2rem 2rem 0 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .search-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+        }
+        
+        .search-input {
+            width: 100%;
+            padding: 1rem 1rem 1rem 3rem;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 50px;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #333;
+            transition: all 0.3s ease;
+        }
+        
+        .search-input:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
+            background-color: #fff;
+        }
+        
+        .search-input::placeholder {
+            color: #666;
+        }
+        
+        .search-icon {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #666;
+            font-size: 1.2rem;
+        }
+        
+        
+        .content-container {
+            padding-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="background-container">
+        <header>
+            <div class="logo">
+                <a href="#">Poll Pioneer</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Live Polls</a></li>
+                    <li><a href="#">Create Poll</a></li>
+                    <li><a href="#">Results</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="auth-buttons">
+                <a href="login.html">Login</a>
+                <a href="register.html">Sign Up</a>
+            </div>
+        </header>
+        <div class="search-container">
+            <div class="search-wrapper">
+                <i class='bx bx-search search-icon'></i>
+                <input type="text" class="search-input" placeholder="Search polls, topics, or categories...">
+            </div>
+        </div>
+
+        <div class="content-container">
+            <!-- Explore Section -->
+            <div class="section">
+                <div class="section-header">
+                    <h2>Explore</h2>
+                    <a href="explore.html" class="see-more">See More</a>
+                </div>
+                <div class="scroll-container">
+                    <div class="poll-card">
+                        <h3>Technology Trends 2024</h3>
+                        <p>Vote on the most impactful tech trends of the year</p>
+                        <div class="poll-stats">1.2K votes • Ends in 2 days</div>
+                    </div>
+                    <div class="poll-card">
+                        <h3>Global Climate Action</h3>
+                        <p>Share your views on climate change initiatives</p>
+                        <div class="poll-stats">3.5K votes • Ends in 5 days</div>
+                    </div>
+                    <div class="poll-card">
+                        <h3>Future of Work</h3>
+                        <p>Remote vs hybrid vs office - what works best?</p>
+                        <div class="poll-stats">2.8K votes • Ends in 3 days</div>
+                    </div>
+                    <div class="poll-card">
+                        <h3>Entertainment Awards</h3>
+                        <p>Vote for your favorite movies and shows</p>
+                        <div class="poll-stats">5.1K votes • Ends in 1 day</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Live Polls Section -->
+            <div class="section">
+                <div class="section-header">
+                    <h2>Live Polls</h2>
+                    <a href="live-polls.html" class="see-more">See More</a>
+                </div>
+                <div class="scroll-container">
+                    <div class="poll-card">
+                        <h3>Current Events Poll</h3>
+                        <p>Live voting on today's breaking news</p>
+                        <div class="poll-stats">Active Now • 245 participants</div>
+                    </div>
+                    <div class="poll-card">
+                        <h3>Sports Match Predictions</h3>
+                        <p>Vote on tonight's game outcomes</p>
+                        <div class="poll-stats">Active Now • 1.3K participants</div>
+                    </div>
+                    <div class="poll-card">
+                        <h3>Live Market Sentiment</h3>
+                        <p>Real-time market trend predictions</p>
+                        <div class="poll-stats">Active Now • 892 participants</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Custom Polls Section -->
+            <div class="section">
+                <div class="section-header">
+                    <h2>Custom Polls</h2>
+                    <a href="custom-polls.html" class="see-more">See More</a>
+                </div>
+                <div class="scroll-container">
+                    <div class="poll-card">
+                        <h3>Company Culture Survey</h3>
+                        <p>Private poll for employees only</p>
+                        <div class="poll-stats">Private • 50 participants</div>
+                    </div>
+                    <div class="poll-card">
+                        <h3>Event Planning Poll</h3>
+                        <p>Help decide the next meetup details</p>
+                        <div class="poll-stats">Group Poll • 28 participants</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Continue Polls Section -->
+            <div class="section">
+                <div class="section-header">
+                    <h2>Continue Polls</h2>
+                    <a href="continue-polls.html" class="see-more">See More</a>
+                </div>
+                <div class="scroll-container">
+                    <div class="poll-card">
+                        <h3>City Development Project</h3>
+                        <p>Phase 2 voting now open</p>
+                        <div class="poll-stats">You voted in Phase 1 • Continue to Phase 2</div>
+                    </div>
+                    <div class="poll-card">
+                        <h3>Education Reform Survey</h3>
+                        <p>Final round of feedback</p>
+                        <div class="poll-stats">2/3 phases completed • Continue</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results Section -->
+            <div class="section">
+                <div class="section-header">
+                    <h2>Results</h2>
+                    <a href="results.html" class="see-more">See More</a>
+                </div>
+                <div class="scroll-container">
+                    <div class="poll-card">
+                        <h3>2024 Tech Predictions</h3>
+                        <p>See how your predictions compared</p>
+                        <div class="poll-stats">Final Results • 10.2K participants</div>
+                    </div>
+                    <div class="poll-card">
+                        <h3>Community Project Vote</h3>
+                        <p>View the winning proposals</p>
+                        <div class="poll-stats">Results Published • 3.4K votes</div>
+                    </div>
+                    <div class="poll-card">
+                        <h3>Music Awards Poll</h3>
+                        <p>Check the fan favorites</p>
+                        <div class="poll-stats">Results Available • 15.7K votes</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
