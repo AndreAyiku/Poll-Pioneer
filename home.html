@@ -9,13 +9,13 @@
         body, html {
             margin: 0;
             padding: 0;
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             color: #fff;
             height: 100%;
         }
         
         .background-container {
-            background: linear-gradient(135deg, #f2f2f2, #a6a6a6, #4d4d4d, #1a1a1a);
+            background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460, #533483);
             background-size: 400% 400%;
             animation: gradient 15s ease infinite;
             min-height: 100vh;
@@ -30,8 +30,9 @@
         }
         
         header {
-            background-color: rgba(0, 0, 0, 0.7);
-            color: #fff;
+            background-color: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             padding: 1rem;
             display: flex;
             justify-content: space-between;
@@ -44,14 +45,19 @@
         .logo a {
             color: #fff;
             text-decoration: none;
-            font-size: 1.8rem;
+            font-size: 2rem;
             font-weight: bold;
+            background: linear-gradient(45deg, #00f2fe, #4facfe);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 30px rgba(79, 172, 254, 0.5);
         }
         
         nav ul {
             list-style-type: none;
             display: flex;
-            gap: 1rem;
+            gap: 2rem;
             padding: 0;
         }
         
@@ -59,56 +65,116 @@
             color: #fff;
             text-decoration: none;
             font-size: 1.1rem;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+        }
+        
+        nav ul li a:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
         }
         
         .auth-buttons a {
-            color: #000;
-            background-color: #fff;
-            padding: 0.5rem 1rem;
+            color: #1a1a2e;
+            background: linear-gradient(45deg, #00f2fe, #4facfe);
+            padding: 0.7rem 1.5rem;
             text-decoration: none;
-            border-radius: 5px;
+            border-radius: 8px;
             margin-left: 1rem;
-            font-weight: bold;
+            font-weight: 600;
+            transition: all 0.3s ease;
         }
         
-        .content-container {
-            flex: 1;
-            padding: 2rem;
-            overflow-y: auto;
+        .auth-buttons a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(79, 172, 254, 0.4);
+        }
+        
+        .search-container {
+            padding: 2rem 2rem 0 2rem;
+        }
+        
+        .search-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .search-input {
+            width: 100%;
+            padding: 1.2rem 1.2rem 1.2rem 3.5rem;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            color: #fff;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .search-input:focus {
+            outline: none;
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(79, 172, 254, 0.5);
+            box-shadow: 0 0 20px rgba(79, 172, 254, 0.2);
+        }
+        
+        .search-input::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        .search-icon {
+            position: absolute;
+            left: 1.2rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 1.4rem;
         }
         
         .section {
-            background-color: rgba(0, 0, 0, 0.6);
-            border-radius: 10px;
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
             margin-bottom: 2rem;
-            padding: 1.5rem;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
         
         .section-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
         }
         
         .section-header h2 {
             margin: 0;
-            font-size: 1.8rem;
+            font-size: 2rem;
+            background: linear-gradient(45deg, #00f2fe, #4facfe);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
         
         .see-more {
             color: #fff;
             text-decoration: none;
-            padding: 0.5rem 1rem;
-            border: 2px solid #fff;
-            border-radius: 5px;
-            font-weight: bold;
+            padding: 0.7rem 1.5rem;
+            border: 2px solid rgba(79, 172, 254, 0.5);
+            border-radius: 8px;
+            font-weight: 600;
             transition: all 0.3s ease;
         }
         
         .see-more:hover {
-            background-color: #fff;
-            color: #000;
+            background: linear-gradient(45deg, #00f2fe, #4facfe);
+            border-color: transparent;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(79, 172, 254, 0.4);
         }
         
         .scroll-container {
@@ -116,7 +182,7 @@
             white-space: nowrap;
             padding: 1rem 0;
             scrollbar-width: thin;
-            scrollbar-color: #fff rgba(255, 255, 255, 0.1);
+            scrollbar-color: rgba(79, 172, 254, 0.5) rgba(255, 255, 255, 0.1);
         }
         
         .scroll-container::-webkit-scrollbar {
@@ -129,88 +195,70 @@
         }
         
         .scroll-container::-webkit-scrollbar-thumb {
-            background-color: #fff;
+            background: linear-gradient(45deg, #00f2fe, #4facfe);
             border-radius: 4px;
         }
         
         .poll-card {
             display: inline-block;
             width: 300px;
-            height: 200px;
-            margin-right: 1rem;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 8px;
-            padding: 1rem;
+            height: 280px;
+            margin-right: 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 0;
             vertical-align: top;
             white-space: normal;
-            transition: transform 0.3s ease;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+            cursor: pointer;
         }
         
         .poll-card:hover {
             transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(79, 172, 254, 0.3);
+            box-shadow: 0 8px 32px rgba(79, 172, 254, 0.2);
+        }
+
+        .poll-image {
+            width: 100%;
+            height: 140px;
+            object-fit: cover;
+            border-radius: 15px 15px 0 0;
+        }
+
+        .poll-content {
+            padding: 1.2rem;
         }
         
         .poll-card h3 {
-            margin: 0 0 0.5rem 0;
-            font-size: 1.2rem;
+            margin: 0 0 0.8rem 0;
+            font-size: 1.3rem;
+            background: linear-gradient(45deg, #fff, #e0e0e0);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
         
         .poll-card p {
             margin: 0;
-            font-size: 0.9rem;
+            font-size: 1rem;
             color: rgba(255, 255, 255, 0.8);
+            line-height: 1.5;
         }
         
         .poll-stats {
-            margin-top: 1rem;
-            font-size: 0.8rem;
-            color: rgba(255, 255, 255, 0.6);
-        }.search-container {
-            padding: 2rem 2rem 0 2rem;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            margin-top: 2%;
+            font-size: 0.9rem;
+            color: rgba(79, 172, 254, 0.8);
+            font-weight: 500;
         }
-        
-        .search-wrapper {
-            position: relative;
-            width: 100%;
-            max-width: 600px;
-        }
-        
-        .search-input {
-            width: 100%;
-            padding: 1rem 1rem 1rem 3rem;
-            font-size: 1.1rem;
-            border: none;
-            border-radius: 50px;
-            background-color: rgba(255, 255, 255, 0.9);
-            color: #333;
-            transition: all 0.3s ease;
-        }
-        
-        .search-input:focus {
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
-            background-color: #fff;
-        }
-        
-        .search-input::placeholder {
-            color: #666;
-        }
-        
-        .search-icon {
-            position: absolute;
-            left: 1rem;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #666;
-            font-size: 1.2rem;
-        }
-        
         
         .content-container {
-            padding-top: 1rem;
+            padding: 2rem;
         }
     </style>
 </head>
@@ -218,14 +266,14 @@
     <div class="background-container">
         <header>
             <div class="logo">
-                <a href="#">Poll Pioneer</a>
+                <a href="index.html">Poll Pioneer</a>
             </div>
             <nav>
                 <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Live Polls</a></li>
-                    <li><a href="#">Create Poll</a></li>
-                    <li><a href="#">Results</a></li>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="live_polls.html">Live Polls</a></li>
+                    <li><a href="Create_poll.html">Create Poll</a></li>
+                    <li><a href="results.html">Results</a></li>
                     <li><a href="#">About</a></li>
                     <li><a href="#">Contact</a></li>
                 </ul>
@@ -233,10 +281,9 @@
             <div class="auth-buttons">
                 <a href="teamLogin.html">Login</a>
                 <a href="team signup.html">Sign Up</a>
-                <a href="results.html">Results</a>
-                <a href="live_polls.html">Live Polls</a>
             </div>
         </header>
+
         <div class="search-container">
             <div class="search-wrapper">
                 <i class='bx bx-search search-icon'></i>
@@ -245,126 +292,276 @@
         </div>
 
         <div class="content-container">
-            <!-- Explore Section -->
-            <div class="section">
+            <!-- Sections -->
+            <div id="explore-section" class="section">
                 <div class="section-header">
                     <h2>Explore</h2>
                     <a href="#" class="see-more">See More</a>
                 </div>
-                <div class="scroll-container">
-                    <div class="poll-card">
-                        <h3>Technology Trends 2024</h3>
-                        <p>Vote on the most impactful tech trends of the year</p>
-                        <div class="poll-stats">1.2K votes • Ends in 2 days</div>
-                    </div>
-                    <div class="poll-card">
-                        <h3>Global Climate Action</h3>
-                        <p>Share your views on climate change initiatives</p>
-                        <div class="poll-stats">3.5K votes • Ends in 5 days</div>
-                    </div>
-                    <div class="poll-card">
-                        <h3>Future of Work</h3>
-                        <p>Remote vs hybrid vs office - what works best?</p>
-                        <div class="poll-stats">2.8K votes • Ends in 3 days</div>
-                    </div>
-                    <div class="poll-card">
-                        <h3>Entertainment Awards</h3>
-                        <p>Vote for your favorite movies and shows</p>
-                        <div class="poll-stats">5.1K votes • Ends in 1 day</div>
-                    </div>
-                </div>
+                <div class="scroll-container"></div>
             </div>
 
-            <!-- Live Polls Section -->
-            <div class="section">
+            <div id="live-polls-section" class="section">
                 <div class="section-header">
                     <h2>Live Polls</h2>
                     <a href="#" class="see-more">See More</a>
                 </div>
-                <div class="scroll-container">
-                    <div class="poll-card">
-                        <h3>Current Events Poll</h3>
-                        <p>Live voting on today's breaking news</p>
-                        <div class="poll-stats">Active Now • 245 participants</div>
-                    </div>
-                    <div class="poll-card">
-                        <h3>Sports Match Predictions</h3>
-                        <p>Vote on tonight's game outcomes</p>
-                        <div class="poll-stats">Active Now • 1.3K participants</div>
-                    </div>
-                    <div class="poll-card">
-                        <h3>Live Market Sentiment</h3>
-                        <p>Real-time market trend predictions</p>
-                        <div class="poll-stats">Active Now • 892 participants</div>
-                    </div>
-                </div>
+                <div class="scroll-container"></div>
             </div>
 
-            <!-- Custom Polls Section -->
-            <div class="section">
+            <div id="custom-polls-section" class="section">
                 <div class="section-header">
                     <h2>Custom Polls</h2>
                     <a href="#" class="see-more">See More</a>
                 </div>
-                <div class="scroll-container">
-                    <div class="poll-card">
-                        <h3>Company Culture Survey</h3>
-                        <p>Private poll for employees only</p>
-                        <div class="poll-stats">Private • 50 participants</div>
-                    </div>
-                    <div class="poll-card">
-                        <h3>Event Planning Poll</h3>
-                        <p>Help decide the next meetup details</p>
-                        <div class="poll-stats">Group Poll • 28 participants</div>
-                    </div>
-                </div>
+                <div class="scroll-container"></div>
             </div>
 
-            <!-- Continue Polls Section -->
-            <div class="section">
+            <div id="continue-polls-section" class="section">
                 <div class="section-header">
                     <h2>Continue Polls</h2>
                     <a href="#" class="see-more">See More</a>
                 </div>
-                <div class="scroll-container">
-                    <div class="poll-card">
-                        <h3>City Development Project</h3>
-                        <p>Phase 2 voting now open</p>
-                        <div class="poll-stats">You voted in Phase 1 • Continue to Phase 2</div>
-                    </div>
-                    <div class="poll-card">
-                        <h3>Education Reform Survey</h3>
-                        <p>Final round of feedback</p>
-                        <div class="poll-stats">2/3 phases completed • Continue</div>
-                    </div>
-                </div>
+                <div class="scroll-container"></div>
             </div>
 
-            <!-- Results Section -->
-            <div class="section">
+            <div id="results-section" class="section">
                 <div class="section-header">
                     <h2>Results</h2>
                     <a href="#" class="see-more">See More</a>
                 </div>
-                <div class="scroll-container">
-                    <div class="poll-card">
-                        <h3>2024 Tech Predictions</h3>
-                        <p>See how your predictions compared</p>
-                        <div class="poll-stats">Final Results • 10.2K participants</div>
-                    </div>
-                    <div class="poll-card">
-                        <h3>Community Project Vote</h3>
-                        <p>View the winning proposals</p>
-                        <div class="poll-stats">Results Published • 3.4K votes</div>
-                    </div>
-                    <div class="poll-card">
-                        <h3>Music Awards Poll</h3>
-                        <p>Check the fan favorites</p>
-                        <div class="poll-stats">Results Available • 15.7K votes</div>
-                    </div>
-                </div>
+                <div class="scroll-container"></div>
             </div>
         </div>
     </div>
+
+    <script>
+        // Poll data structure
+        const pollData = {
+            explore: [
+                {
+                    id: 1,
+                    title: "Technology Trends 2024",
+                    description: "Vote on the most impactful tech trends of the year",
+                    image: "images/tech.jpg",
+                    stats: "1.2K votes • Ends in 2 days",
+                    category: "explore"
+                },
+                {
+                    id: 2,
+                    title: "Global Climate Action",
+                    description: "Share your views on climate change initiatives",
+                    image: "images/climate.jpg",
+                    stats: "3.5K votes • Ends in 5 days",
+                    category: "explore"
+                },
+                {
+                    id: 3,
+                    title: "Future of Work",
+                    description: "Remote vs hybrid vs office - what works best?",
+                    image: "images/office.jpg",
+                    stats: "2.8K votes • Ends in 3 days",
+                    category: "explore"
+                }
+            ],
+            livePolls: [
+                {
+                    id: 4,
+                    title: "Current Events Poll",
+                    description: "Live voting on today's breaking news",
+                    image: "images/events.jpg",
+                    stats: "Active Now • 245 participants",
+                    category: "live"
+                },
+                {
+                    id: 5,
+                    title: "Sports Match Predictions",
+                    description: "Vote on tonight's game outcomes",
+                    image: "images/sports.jpg",
+                    stats: "Active Now • 1.3K participants",
+                    category: "live"
+                }
+            ],
+            customPolls: [
+                {
+                    id: 6,
+                    title: "Company Culture Survey",
+                    description: "Private poll for employees only",
+                    image: "images/company.jpg",
+                    stats: "Private • 50 participants",
+                    category: "custom"
+                },
+                {
+                    id: 7,
+                    title: "Event Planning Poll",
+                    description: "Help decide the next meetup details",
+                    image: "images/events.jpg",
+                    stats: "Group Poll • 28 participants",
+                    category: "custom"
+                }
+            ],
+            continuePolls: [
+                {
+                    id: 8,
+                    title: "City Development Project",
+                    description: "Phase 2 voting now open",
+                    image: "images/city.jpg",
+                    stats: "You voted in Phase 1 • Continue to Phase 2",
+                    category: "continue"
+                }
+            ],
+            results: [
+                {
+                    id: 9,
+                    title: "2024 Tech Predictions",
+                    description: "See how your predictions compared",
+                    image: "/api/placeholder/300/140",
+                    stats: "Final Results • 10.2K participants",
+                    category: "results"
+                },
+                {
+                    id: 10,
+                    title: "Community Project Vote",
+                    description: "View the winning proposals",
+                    image: "/api/placeholder/300/140",
+                    stats: "Results Published • 3.4K votes",
+                    category: "results"
+                }
+            ]
+        };
+
+        // Function to create a single poll card
+        function createPollCard(poll) {
+            const card = document.createElement('div');
+            card.className = 'poll-card';
+            card.innerHTML = `
+                
+                <div class="poll-content">
+                    <h3>${poll.title}</h3>
+                    <p>${poll.description}</p>
+                    <div class="poll-stats">${poll.stats}</div>
+                    <img src="${poll.image}" alt="${poll.title}" class="poll-image">
+                </div>
+            `;
+            
+            // Add click event listener
+            card.addEventListener('click', () => handlePollClick(poll));
+            
+            return card;
+        }
+
+        // Function to handle poll card clicks
+        function handlePollClick(poll) {
+            console.log(`Poll clicked:`, poll);
+        }
+
+        // Function to populate a section with polls
+        function populateSection(sectionId, polls) {
+            const section = document.querySelector(`#${sectionId} .scroll-container`);
+            if (!section) return;
+            
+            section.innerHTML = ''; // Clear existing content
+            polls.forEach(poll => {
+                section.appendChild(createPollCard(poll));
+            });
+        }
+
+        // Function to add a new poll
+        function addNewPoll(category, newPoll) {
+            // Ensure the category exists in pollData
+            if (!pollData[category]) {
+                pollData[category] = [];
+            }
+
+            // Add the new poll to the appropriate category
+            pollData[category].push({
+                ...newPoll,
+                id: generateUniqueId(),
+                category: category
+            });
+
+            // Refresh the section display
+            populateSection(`${category}-section`, pollData[category]);
+        }
+
+        // Function to update an existing poll
+        function updatePoll(category, updatedPoll) {
+            const polls = pollData[category];
+            if (!polls) return;
+
+            const index = polls.findIndex(poll => poll.id === updatedPoll.id);
+            if (index !== -1) {
+                polls[index] = { ...polls[index], ...updatedPoll };
+                populateSection(`${category}-section`, polls);
+            }
+        }
+
+        // Function to delete a poll
+        function deletePoll(category, pollId) {
+            const polls = pollData[category];
+            if (!polls) return;
+
+            const index = polls.findIndex(poll => poll.id === pollId);
+            if (index !== -1) {
+                polls.splice(index, 1);
+                populateSection(`${category}-section`, polls);
+            }
+        }
+
+        // Function to generate a unique ID
+        function generateUniqueId() {
+            return Date.now().toString(36) + Math.random().toString(36).substr(2);
+        }
+
+        // Function to filter polls
+        function filterPolls(searchTerm) {
+            searchTerm = searchTerm.toLowerCase();
+            
+            Object.keys(pollData).forEach(category => {
+                const filteredPolls = pollData[category].filter(poll => 
+                    poll.title.toLowerCase().includes(searchTerm) ||
+                    poll.description.toLowerCase().includes(searchTerm)
+                );
+                populateSection(`${category}-section`, filteredPolls);
+            });
+        }
+
+        // Initialize search functionality
+        document.querySelector('.search-input').addEventListener('input', (e) => {
+            filterPolls(e.target.value);
+        });
+
+        // Initialize all sections when the document is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initialize each section
+            populateSection('explore-section', pollData.explore);
+            populateSection('live-polls-section', pollData.livePolls);
+            populateSection('custom-polls-section', pollData.customPolls);
+            populateSection('continue-polls-section', pollData.continuePolls);
+            populateSection('results-section', pollData.results);
+        });
+
+        // Example usage:
+        /*
+        // Add a new poll
+        const newPoll = {
+            title: "New Technology Survey",
+            description: "Share your thoughts on emerging tech",
+            image: "/api/placeholder/300/140",
+            stats: "New • 0 participants"
+        };
+        addNewPoll('explore', newPoll);
+
+        // Update an existing poll
+        const updatedPoll = {
+            id: 1,
+            stats: "1.5K votes • Ends in 1 day"
+        };
+        updatePoll('explore', updatedPoll);
+
+        // Delete a poll
+        deletePoll('explore', 1);
+        */
+    </script>
 </body>
 </html>
